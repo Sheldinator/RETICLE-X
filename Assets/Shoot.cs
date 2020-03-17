@@ -9,18 +9,18 @@ public class Shoot : MonoBehaviour{
 
    public Camera fpsCam;
 
-   private float nextTimeToFire - 0f;
+   private float nextTimeToFire = 0f;
 
     
     void Update() {
 
-    if (Input.GetButtonDown("Fire1"))Time.time >= nextTimeToFire;
+    if (Input.GetButtonDown("Fire1")&&Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f/fireRate;
             Shot();
         }
 }
-void Shot ()
+void Shot()
 {
      RaycastHit hit;
      if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
@@ -35,6 +35,3 @@ void Shot ()
      }
    }
 }
-
-
-  
